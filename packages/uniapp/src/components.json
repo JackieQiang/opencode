@@ -1,0 +1,8 @@
+{
+  "usingComponents": true,
+  "componentPlaceholder": {
+    "view": "view",
+    "text": "text",
+    "image": "image"
+  }
+}

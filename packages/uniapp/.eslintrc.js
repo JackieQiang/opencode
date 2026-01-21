@@ -1,0 +1,66 @@
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    es2022: true,
+    node: true,
+    'uni-h5': true,
+  },
+  extends: [
+    'plugin:vue/vue3-essential',
+    'eslint:recommended',
+    '@typescript-eslint/recommended',
+    'prettier',
+  ],
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    parser: '@typescript-eslint/parser',
+    tsconfigRootDir: __dirname,
+    project: ['./tsconfig.json'],
+    extraFileExtensions: ['.vue'],
+  },
+  plugins: ['vue', '@typescript-eslint'],
+  globals: {
+    uni: 'readonly',
+    wx: 'readonly',
+    WechatMiniprogram: 'readonly',
+    getApp: 'readonly',
+    getCurrentPages: 'readonly',
+    UniViewElement: 'readonly',
+    UniElement: 'readonly',
+    UniNode: 'readonly',
+    App: 'readonly',
+    Page: 'readonly',
+    Component: 'readonly',
+    Behavior: 'readonly',
+  },
+  rules: {
+    'vue/multi-word-component-names': 'off',
+    'vue/no-v-html': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: { void: 'always', normal: 'never', component: 'always' },
+        svg: 'always',
+        math: 'always',
+      },
+    ],
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+  },
+  overrides: [
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+  ],
+}

@@ -1,0 +1,17 @@
+export default function (resolve: (path: string) => string) {
+  return {
+    plugins: [],
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, 'src')
+      }
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/styles/variables.scss";`
+        }
+      }
+    }
+  }
+}

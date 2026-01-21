@@ -1,0 +1,11 @@
+{
+  "baseUrl": "/",
+  "paths": {
+    "@/*": ["src/*"]
+  },
+  "compilerOptions": {
+    "strict": true,
+    "types": ["@dcloudio/types", "vite/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.d.ts"]
+}

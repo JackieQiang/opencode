@@ -1,0 +1,81 @@
+export const dict = {
+  'command.category.suggested': '建议',
+  'command.category.view': '视图',
+  'command.category.project': '项目',
+  'command.category.provider': '提供商',
+  'command.category.server': '服务器',
+  'command.category.session': '会话',
+  'command.category.theme': '主题',
+  'command.category.language': '语言',
+  'command.category.file': '文件',
+  'command.category.terminal': '终端',
+  'command.category.model': '模型',
+  'command.category.mcp': 'MCP',
+  'command.category.agent': '智能体',
+  'command.category.permissions': '权限',
+
+  'theme.scheme.system': '系统',
+  'theme.scheme.light': '浅色',
+  'theme.scheme.dark': '深色',
+
+  'command.session.new': '新建会话',
+  'command.file.open': '打开文件',
+  'command.file.open.description': '搜索文件和命令',
+  'command.terminal.toggle': '切换终端',
+  'command.review.toggle': '切换审查',
+  'command.steps.toggle': '切换步骤',
+  'command.message.previous': '上一条消息',
+  'command.message.next': '下一条消息',
+  'command.model.choose': '选择模型',
+  'command.agent.cycle': '切换智能体',
+  'command.permissions.autoaccept.enable': '自动接受编辑',
+  'command.session.undo': '撤销',
+  'command.session.redo': '重做',
+  'command.session.compact': '精简会话',
+  'command.session.fork': '从消息分叉',
+  'command.session.share': '分享会话',
+
+  'palette.search.placeholder': '搜索文件和命令',
+  'palette.empty': '未找到结果',
+  'palette.group.commands': '命令',
+  'palette.group.files': '文件',
+
+  'common.search.placeholder': '搜索',
+  'common.loading': '加载中',
+  'common.cancel': '取消',
+  'common.submit': '提交',
+  'common.save': '保存',
+  'common.attachment': '附件',
+
+  'prompt.placeholder.shell': '输入 shell 命令...',
+  'prompt.placeholder.normal': '随便问点什么...',
+
+  'prompt.popover.emptyResults': '没有匹配的结果',
+  'prompt.popover.emptyCommands': '没有匹配的命令',
+  'prompt.dropzone.label': '将图片拖到这里',
+
+  'toast.permissions.autoaccept.on.title': '自动接受编辑已开启',
+  'toast.permissions.autoaccept.off.title': '自动接受编辑已关闭',
+  'toast.file.loadFailed.title': '加载文件失败',
+  'toast.session.share.success.title': '会话已分享',
+
+  'session.tab.session': '会话',
+  'session.tab.review': '审查',
+  'session.tab.context': '上下文',
+  'session.review.empty': '此会话暂无更改',
+
+  'home.recentProjects': '最近项目',
+  'home.empty.title': '没有最近项目',
+  'home.empty.description': '通过打开本地项目开始使用',
+
+  'terminal.loading': '正在加载终端...',
+  'terminal.title': '终端',
+
+  'error.page.title': '出了点问题',
+  'error.page.description': '加载应用程序时发生错误。',
+
+  'settings.tab.general': '通用',
+  'settings.tab.shortcuts': '快捷键',
+} as const
+
+export type I18nKeys = keyof typeof dict
