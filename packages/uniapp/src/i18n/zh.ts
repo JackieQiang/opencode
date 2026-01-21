@@ -1,4 +1,4 @@
-export const dict = {
+export const zh = {
   'command.category.suggested': '建议',
   'command.category.view': '视图',
   'command.category.project': '项目',
@@ -76,6 +76,4 @@ export const dict = {
 
   'settings.tab.general': '通用',
   'settings.tab.shortcuts': '快捷键',
-} as const
-
-export type I18nKeys = keyof typeof dict
+}

@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { defineStore } from 'pinia'
 
 export const useGlobalStore = defineStore('global', () => {
   const serverUrl = ref('http://localhost:4096')

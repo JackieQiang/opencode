@@ -4,10 +4,6 @@ import type { RouteRecordRaw } from 'vue-router'
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/index',
-  },
-  {
-    path: '/index',
     name: 'Home',
     component: () => import('@/pages/index/index.vue'),
     meta: {

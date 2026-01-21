@@ -8,6 +8,7 @@
 import { provide } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 import { useLanguage } from '@/composables/useLanguage'
+import { onLaunch, onShow, onHide, onError } from '@dcloudio/uni-app'
 
 const { theme, initTheme } = useTheme()
 const { locale, t, initLanguage } = useLanguage()
@@ -36,7 +37,9 @@ onError(err => {
 </script>
 
 <style lang="scss">
-@import '@/styles/index.scss' .app {
+@import '@/styles/index.scss';
+
+.app {
   width: 100%;
   height: 100%;
   min-height: 100vh;

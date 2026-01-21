@@ -10,7 +10,7 @@ interface WebSocketOptions {
 
 export function useWebSocket(options: WebSocketOptions) {
   const connected = ref(false)
-  const socket = ref<UniWebSocket | WebSocket | null>(null)
+  const socket = ref<any | null>(null)
   const messageQueue = ref<string[]>([])
   let reconnectTimer: ReturnType<typeof setTimeout> | null = null
   let reconnectAttempts = 0
@@ -38,7 +38,7 @@ export function useWebSocket(options: WebSocketOptions) {
         while (messageQueue.value.length > 0) {
           const msg = messageQueue.value.shift()
           if (msg) {
-            ;(socket.value as UniWebSocket).send({ data: msg })
+            ;(socket.value as any).send({ data: msg })
           }
         }
       })
@@ -68,7 +68,7 @@ export function useWebSocket(options: WebSocketOptions) {
       options.onConnect?.()
     }
 
-    socket.value.onmessage = e => {
+    socket.value.onmessage = (e: any) => {
       options.onMessage?.(e.data)
     }
 
@@ -78,26 +78,26 @@ export function useWebSocket(options: WebSocketOptions) {
       scheduleReconnect()
     }
 
-    socket.value.onerror = e => {
+    socket.value.onerror = (e: any) => {
       options.onError?.(e)
     }
     // #endif
 
     // #ifdef APP-PLUS
-    socket.value = plus.webview.createWebSocket(options.url)
+    socket.value = (plus.webview as any).createWebSocket(options.url)
     // #endif
   }
 
   const send = (data: string) => {
     if (connected.value && socket.value) {
       // #ifdef MP-WEIXIN
-      ;(socket.value as UniWebSocket)
-        .send({ data })(
-          // #endif
-          // #ifdef H5
-          socket.value as WebSocket
-        )
-        .send(data)
+      ;(socket.value as any).send({ data })
+      // #endif
+      // #ifdef H5
+      socket.value.send(data)
+      // #endif
+      // #ifdef APP-PLUS
+      ;(socket.value as any).send(data)
       // #endif
     } else {
       messageQueue.value.push(data)
@@ -112,13 +112,13 @@ export function useWebSocket(options: WebSocketOptions) {
 
     if (socket.value) {
       // #ifdef MP-WEIXIN
-      ;(socket.value as UniWebSocket)
-        .close()(
-          // #endif
-          // #ifdef H5
-          socket.value as WebSocket
-        )
-        .close()
+      ;(socket.value as any).close()
+      // #endif
+      // #ifdef H5
+      socket.value.close()
+      // #endif
+      // #ifdef APP-PLUS
+      ;(socket.value as any).close()
       // #endif
       socket.value = null
     }
