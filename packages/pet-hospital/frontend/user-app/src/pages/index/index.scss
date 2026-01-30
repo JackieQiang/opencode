@@ -1,0 +1,123 @@
+$primary-color: #FF9F43;
+$bg-cream: #FFF8F0;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(180deg, $bg-cream 0%, #FFF 100%);
+}
+
+.chat-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message {
+  display: flex;
+  gap: 12px;
+
+  &.user {
+    flex-direction: row-reverse;
+  }
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+
+  &.ai {
+    background: linear-gradient(135deg, $primary-color, #E67E22);
+  }
+
+  &.user {
+    background: linear-gradient(135deg, #A29BFE, #6C5CE7);
+  }
+}
+
+.message-content {
+  max-width: 265px;
+  padding: 14px 18px;
+  border-radius: 24px;
+  font-size: 14px;
+  line-height: 1.6;
+
+  .ai & {
+    background: #FFF;
+    border: 2px solid rgba(255, 159, 67, 0.15);
+    border-bottom-left-radius: 6px;
+  }
+
+  .user & {
+    background: linear-gradient(135deg, $primary-color, #E67E22);
+    color: white;
+    border-bottom-right-radius: 6px;
+  }
+}
+
+.quick-commands {
+  display: flex;
+  gap: 8px;
+  padding: 0 20px 12px;
+  overflow-x: auto;
+}
+
+.quick-cmd {
+  padding: 8px 16px;
+  background: #FFF;
+  border: 2px solid rgba(255, 159, 67, 0.15);
+  border-radius: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+
+  &:hover {
+    background: $primary-color;
+    color: white;
+    border-color: $primary-color;
+  }
+}
+
+.input-area {
+  padding: 16px 20px 28px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.input-field {
+  flex: 1;
+  height: 48px;
+  background: #FFF;
+  border: 2px solid rgba(255, 159, 67, 0.2);
+  border-radius: 24px;
+  padding: 0 20px;
+  font-size: 14px;
+
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+}
+
+.send-btn {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, $primary-color, #E67E22);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
